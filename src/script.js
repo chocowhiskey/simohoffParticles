@@ -129,7 +129,7 @@ const tick = () => {
 
   // Update objects
   sphere.rotation.y = 0.5 * elapsedTime;
-  particlesMesh.rotation.x = mouseY * (0.00005 * elapsedTime);
+  particlesMesh.rotation.x = -mouseY * (0.00005 * elapsedTime);
 
   // Update Orbital Controls
   // controls.update()
