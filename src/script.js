@@ -74,7 +74,7 @@ window.addEventListener("resize", () => {
   // Update renderer
   renderer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setClearColor(new THREE.Color("#21282a"), 1);
+  renderer.setClearColor(0xffffff, 1);
 });
 
 /**
@@ -101,9 +101,22 @@ scene.add(camera);
  */
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
+  alpha: true,
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setClearColor(new THREE.Color("#21282a"), 1);
+// Mouse event
+
+document.addEventListener("mousemove", animateParticles);
+
+let mouseX = 0;
+let mouseY = 0;
+
+function animateParticles(event) {
+  mouseY = event.clientY;
+  mouseX = event.clientX;
+}
 
 /**
  * Animate
@@ -116,6 +129,7 @@ const tick = () => {
 
   // Update objects
   sphere.rotation.y = 0.5 * elapsedTime;
+  particlesMesh.rotation.x = mouseY * (0.00005 * elapsedTime);
 
   // Update Orbital Controls
   // controls.update()
