@@ -6,6 +6,10 @@ import * as dat from "dat.gui";
 // Debug
 const gui = new dat.GUI();
 
+// Texture loader
+const loader = new THREE.TextureLoader();
+const cross = loader.load("./cross.png");
+
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
 
@@ -21,7 +25,7 @@ const particlesCnt = 5000;
 const posArray = new Float32Array(particlesCnt * 3);
 for (let i = 0; i < particlesCnt * 3; i++) {
   // to center add '- 0.5' and to spread particles over whole screen '*5'
-  posArray[i] = (Math.random() - 0.5) * 5;
+  posArray[i] = (Math.random() - 0.5) * (Math.random() * 8);
 }
 particlesGeometry.setAttribute(
   "position",
@@ -31,10 +35,15 @@ particlesGeometry.setAttribute(
 // Materials
 
 const material = new THREE.PointsMaterial({ size: 0.005 });
+const particlesMaterial = new THREE.PointsMaterial({
+  size: 0.005,
+  map: cross,
+  transparent: true,
+});
 
 // Mesh
 const sphere = new THREE.Points(geometry, material);
-const particlesMesh = new THREE.Points(particlesGeometry, material);
+const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
 scene.add(sphere, particlesMesh);
 
 // Lights
@@ -65,6 +74,7 @@ window.addEventListener("resize", () => {
   // Update renderer
   renderer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(new THREE.Color("#21282a"), 1);
 });
 
 /**
