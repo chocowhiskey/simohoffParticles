@@ -20,7 +20,8 @@ const particlesCnt = 5000;
 
 const posArray = new Float32Array(particlesCnt * 3);
 for (let i = 0; i < particlesCnt * 3; i++) {
-  posArray[i] = Math.random();
+  // to center add '- 0.5' and to spread particles over whole screen '*5'
+  posArray[i] = (Math.random() - 0.5) * 5;
 }
 particlesGeometry.setAttribute(
   "position",
