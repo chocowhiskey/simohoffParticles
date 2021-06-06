@@ -70,7 +70,7 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   width: 50vw;
   line-height: 96%;
   text-align: right;
@@ -88,7 +88,7 @@ p {
   width: 40vw;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
   h1 {
     font-size: 2rem !important;
   }
@@ -99,5 +99,13 @@ p {
 
   .content {
     gap: 2em;
+  }
+
+  .links {
+    gap: 1em;
+    width: 100%;
+    padding-top: 3em;
+    position: relative;
+    display: flex;
   }
 }
