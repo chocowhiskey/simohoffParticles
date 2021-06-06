@@ -70,7 +70,7 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   width: 50vw;
   line-height: 96%;
   text-align: right;
@@ -86,4 +86,18 @@ p {
 p {
   font-size: 1.3rem;
   width: 40vw;
+}
+
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  p {
+    width: 30vw;
+  }
+
+  .content {
+    gap: 2em;
+  }
 }
