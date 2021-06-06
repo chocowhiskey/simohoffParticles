@@ -28,6 +28,23 @@ body {
   place-content: center;
 }
 
+.subcontainer {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 10vh;
+  display: grid;
+  place-content: start center;
+}
+
+.links {
+  gap: 5em;
+  width: 100%;
+  padding-top: 3em;
+  position: relative;
+  display: flex;
+}
+
 .content {
   display: flex;
   gap: 5em;
@@ -44,6 +61,11 @@ body {
   width: 100%;
   border-bottom: 1px solid whitesmoke;
   transform: scaleX(1);
+}
+
+.item {
+  color: antiquewhite;
+  font-size: 1.5rem;
 }
 
 h1 {
