@@ -106,7 +106,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 // Uncomment if no background image is set
-//renderer.setClearColor(new THREE.Color("#21282a"), 1);
+renderer.setClearColor(new THREE.Color("#21282a"), 1);
 // Mouse event
 
 document.addEventListener("mousemove", animateParticles);
@@ -130,7 +130,9 @@ const tick = () => {
 
   // Update objects
   sphere.rotation.y = 0.5 * elapsedTime;
-  particlesMesh.rotation.y = -0.1 * elapsedTime;
+  sphere.rotation.x = -0.2 * elapsedTime;
+
+  particlesMesh.rotation.y = 0.1 * elapsedTime;
 
   // Mouse movents
   particlesMesh.rotation.x = -mouseY * (0.00005 * elapsedTime);
